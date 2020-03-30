@@ -1,0 +1,18 @@
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.baizhi.ems.dao.UserDAO">
+
+
+
+
+    <!--保存用户-->
+    <insert id="save" parameterType="User" >
+        insert into t_user values (#{id},#{username},#{realname},#{password},#{sex})
+    </insert>
+
+
+    <!--登录的方法-->
+    <select id="findByUsernameAndPassword" resultType="User">
+        select id,username,realname,password,sex from t_user where username=#{username} and password=#{password}
+    </select>
+
+</mapper>
